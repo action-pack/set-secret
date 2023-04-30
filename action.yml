@@ -2,7 +2,7 @@ name: 'Set Secret'
 
 author: kroese
 
-description: 'Action to set repository secrets.'
+description: 'Action to set repository secrets'
 
 branding:
   icon: lock
