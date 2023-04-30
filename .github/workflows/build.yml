@@ -68,7 +68,7 @@ jobs:
           rm index.js
       - name: Git Create Branch release/v${{ secrets.MINOR }} 
         run: |
-          git add .
+          gitx add .
           git commit -m "Auto commit from Github Actions #${{ github.run_id }}"
           git push origin release/v${{ secrets.MINOR }} -f
 
