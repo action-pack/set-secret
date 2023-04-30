@@ -10,7 +10,9 @@ on:
       - '.dockerignore'
       - '.github/**'
       - '.github/workflows/**'
-
+      - 'package.json'
+      - 'package-lock.json'
+      
 jobs:
   test:
     name: Test
