@@ -45,11 +45,8 @@ jobs:
         with:
           node-version: 16
       - run: |
-          npm install depcheck -g
-          depcheck
           npm i -g @vercel/ncc
           npm install --production
-          npm uninstall $(npx depcheck --oneline)
           npm run build
           Jjbbn
       - name: Clean files
