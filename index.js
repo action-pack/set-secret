@@ -38,7 +38,6 @@ function get_() {
     }
     return '/repos/' + owner + '/' + repository;
   }
-
 }
 
 const getPublicKey = async() => {
