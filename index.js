@@ -24,7 +24,7 @@ if(owner === 'false'){
   owner = ownerName;
 }
 
-let push_to_org = (!(core.getInput("org") === 'false'));
+let push_to_org = (core.getInput("org") !== 'false');
 
 function get_() {
 
