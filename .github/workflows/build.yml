@@ -90,7 +90,7 @@ jobs:
         run: echo "NEW_MINOR=$((${{ secrets.MINOR }}+1))" >> $GITHUB_ENV
       -
        name: Update minor version
-       uses: kroese/set-secret@v3
+       uses: hmanzur/actions-set-secret@v2.0.0
        with:
          name: 'MINOR'
          value: ${{ env.NEW_MINOR }}
