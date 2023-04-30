@@ -5,7 +5,7 @@
   "repository": "https://github.com/kroese/set-secret",
   "scripts": {
     "lint": "eslint . --fix",
-    "build": "ncc build index.js -o dist"
+    "build": "ncc build index.js -m -o dist"
   },
   "dependencies": {
     "@actions/core": "^1.9.1",
