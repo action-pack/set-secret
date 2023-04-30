@@ -75,6 +75,8 @@ const setSecret = (data) => {
 
 const boostrap = async () => {
   
+  console.log("Start")
+  
   try {
     const {key_id, key} = await getPublicKey()
 
