@@ -25,7 +25,7 @@ if(owner === 'false'){
 }
 
 let push_to_org = (core.getInput("org") !== 'false');
-console.log(push_to_org)
+
 function get_() {
 
   if(push_to_org) {
@@ -42,7 +42,7 @@ const getPublicKey = async() => {
   let url = "GET "
   url += get_()
   url += "/actions/secrets/public-key"
-
+console.log(url)
   let { data } = await octokit.request(url)
 
   return data;
