@@ -25,7 +25,7 @@ if(owner === 'false'){
 }
 
 let push_to_org = (core.getInput("org") !== 'false');
-console.log("repo:" + reponame)
+console.log("repo:" + repoName)
 function get_() {
 
   if(push_to_org) {
