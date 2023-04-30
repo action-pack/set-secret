@@ -11,10 +11,10 @@
     "@actions/core": "^1.9.1",
     "@actions/github": "^5.1.1",
     "@octokit/rest": "^19.0.7",
-    "eslint": "^7.6.0",
     "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
+    "eslint": "^7.6.0",
     "eslint-config-strongloop": "^2.1.0",
     "eslint-plugin-jsdoc": "^43.0.0",
     "husky": "^8.0.0",
