@@ -33,7 +33,7 @@ with:
 
 ### owner
 
-**Optional** `String` Owner name.
+**Optional** `String` Owners name.
 
 ### repository
 
