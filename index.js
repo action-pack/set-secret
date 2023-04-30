@@ -82,13 +82,7 @@ const boostrap = async () => {
   try {
     
     const {key_id, key} = await getPublicKey()
-    
-  } catch (e) {
-    core.setFailed(get_() + " " + e.message);
-  }
 
-  try {
-    
     let data = await createSecret(key_id, key, value)
 
     if(push_to_org){
@@ -108,7 +102,7 @@ const boostrap = async () => {
     throw new Error("Wrong response: " + response.status)
 
   }catch (e) {
-    core.setFailed(e.message);
+    core.setFailed(get_() + ": " + e.message);
   }
 }
 
