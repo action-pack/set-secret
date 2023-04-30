@@ -24,6 +24,7 @@ if(owner === 'false'){
   owner = ownerName;
 }
 console.log("owner:" + owner)
+console.log("owner:" + repository)
 let push_to_org = (core.getInput("org") !== 'false');
 
 function get_() {
