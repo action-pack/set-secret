@@ -6,7 +6,7 @@ Action to set repository secrets.
 ## Usage
 
 ```YAML
-uses: kroese/set-secret@v4
+uses: kroese/set-secret@v5
 with:
   name: 'MY_SECRET'
   value: 'Lorem ipsun dolor simit'
