@@ -23,8 +23,7 @@ let owner = core.getInput("owner");
 if(owner === 'false'){
   owner = ownerName;
 }
-console.log("owner:" + owner)
-console.log("owner:" + repository)
+)
 let push_to_org = (core.getInput("org") !== 'false');
 
 function get_() {
@@ -33,6 +32,10 @@ function get_() {
     return '/orgs/' + owner;
   }
   else {
+    if(repository.includes("/"))
+    {
+       return '/repoxs/' + repository;
+    }
     return '/repos/' + owner + '/' + repository;
   }
 
@@ -77,8 +80,15 @@ const setSecret = (data) => {
 const boostrap = async () => {
   
   try {
+    
     const {key_id, key} = await getPublicKey()
+    
+  } catch (e) {
+    core.setFailed(get_() + " " + e.message);
+  }
 
+  try {
+    
     let data = await createSecret(key_id, key, value)
 
     if(push_to_org){
