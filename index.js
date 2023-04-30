@@ -24,7 +24,7 @@ if(owner === 'false'){
   owner = ownerName;
 }
 
-let push_to_org = (core.getInput("org") === 'false');
+let push_to_org = (!(core.getInput("org") === 'false'));
 
 function get_() {
 
@@ -42,7 +42,7 @@ const getPublicKey = async() => {
   let url = "GET "
   url += get_()
   url += "/actions/secrets/public-key"
-console.log(url)
+
   let { data } = await octokit.request(url)
 
   return data;
@@ -75,19 +75,17 @@ const setSecret = (data) => {
 
 const boostrap = async () => {
   
-  console.log("Start")
-  
   try {
     const {key_id, key} = await getPublicKey()
-console.log("Start2")
+
     let data = await createSecret(key_id, key, value)
-console.log("Start3")
+
     if(push_to_org){
       data['visibility'] = 'all'
     }
 
     const response = await setSecret(data)
-console.log("Start4")
+
     if(response.status === 201) {
       return "Succesfully created secret.."
     }
