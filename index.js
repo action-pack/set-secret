@@ -66,7 +66,7 @@ const setSecret = (data) => {
   let url = 'PUT '
   url += get_()
   url += '/actions/secrets/' + name
-
+  console.log(url)
   return octokit.request(url, {
     data
   })
