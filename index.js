@@ -34,7 +34,7 @@ function get_() {
   else {
     if(repository.includes("/"))
     {
-       return '/repoxs/' + repository;
+       return '/repos/' + repository;
     }
     return '/repos/' + owner + '/' + repository;
   }
