@@ -42,7 +42,7 @@ const getPublicKey = async() => {
   let url = "GET "
   url += get_()
   url += "/actions/secrets/public-key"
-
+console.log(url)
   let { data } = await octokit.request(url)
 
   return data;
@@ -66,7 +66,7 @@ const setSecret = (data) => {
   let url = 'PUT '
   url += get_()
   url += '/actions/secrets/' + name
-  console.log(url)
+
   return octokit.request(url, {
     data
   })
