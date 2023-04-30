@@ -74,6 +74,7 @@ const setSecret = (data) => {
 }
 
 const boostrap = async () => {
+  
   try {
     const {key_id, key} = await getPublicKey()
 
@@ -85,6 +86,10 @@ const boostrap = async () => {
 
     const response = await setSecret(data)
 
+    if(response.status === 201) {
+      return "Succesfully created secret.."
+    }
+    
     if(response.status === 204) {
       return "Succesfully updated secret.."
     }
