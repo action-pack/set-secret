@@ -23,13 +23,6 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
     - run: npm install
     - run: npm run lint
-    - name: Test the action
-      uses: ./.
-      with:
-        name: 'MY_SECRET'
-        value: 'Lorem ipsun dolor simit'
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
-    - run: echo ${{secrets.MY_SECRET }} | sed 's/./& /g'
   
   build:
     needs: test
@@ -90,7 +83,7 @@ jobs:
         run: echo "NEW_MINOR=$((${{ secrets.MINOR }}+1))" >> $GITHUB_ENV
       -
        name: Update minor version
-       uses: kroese/set-secret@v4
+       uses: hmanzur/actions-set-secret@v2.0.0
        with:
          name: 'MINOR'
          value: ${{ env.NEW_MINOR }}
