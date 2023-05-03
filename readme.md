@@ -1,5 +1,5 @@
 # Set Secret
-[![Build](https://github.com/kroese/set-secret/actions/workflows/build.yml/badge.svg)](https://github.com/kroese/set-secret/actions/workflows/build.yml)
+[![Build](https://github.com/kroese/set-secret/actions/workflows/build.yml/badge.svg)](https://github.com/kroese/set-secret/)
 [![Version](https://img.shields.io/github/v/tag/kroese/set-secret?label=version&color=066da5)](https://github.com/kroese/set-secret/)
 [![Size](https://img.shields.io/github/size/kroese/set-secret/dist/index.js?branch=release/v5&label=size&color=066da5)](https://github.com/kroese/set-secret/)
 
