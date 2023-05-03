@@ -15,7 +15,6 @@
     "tweetsodium": "^0.0.5"
   },
   "devDependencies": {
-    "webpack-bundle-analyzer": "^4.8.0",
     "eslint-config-strongloop": "^2.1.0",
     "eslint-plugin-jsdoc": "^43.0.0",
     "husky": "^8.0.0",
