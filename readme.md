@@ -1,14 +1,14 @@
 # Set Secret
 [![Build](https://github.com/kroese/set-secret/actions/workflows/build.yml/badge.svg)](https://github.com/kroese/set-secret/actions/workflows/build.yml)
 [![Version](https://img.shields.io/github/v/tag/kroese/set-secret?label=version&color=066da5)](https://github.com/kroese/set-secret/)
-[![Size](https://img.shields.io/github/size/kroese/set-secret/dist/index.js?branch=release/v5&label=size&color=066da5)](https://github.com/kroese/set-secret/)
+[![Size](https://img.shields.io/github/size/kroese/set-secret/dist/index.js?branch=release/v4&label=size&color=066da5)](https://github.com/kroese/set-secret/)
 
 Action to set repository secrets.
 
 ## Usage
 
 ```YAML
-uses: kroese/set-secret@v5
+uses: kroese/set-secret@v4
 with:
   name: 'MY_SECRET'
   value: 'Lorem ipsun dolor simit'
