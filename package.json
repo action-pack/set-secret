@@ -1,6 +1,6 @@
 {
   "name": "set-secret",
-  "version": "5",
+  "version": "6",
   "license": "MIT License",
   "repository": "https://github.com/kroese/set-secret",
   "scripts": {
