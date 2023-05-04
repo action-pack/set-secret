@@ -12,8 +12,7 @@ on:
       - '.github/workflows/**'
       - 'package.json'
       - 'package-lock.json'
-      - 'action.yml'
-      
+
 jobs:
   test:
     name: Test
@@ -65,15 +64,6 @@ jobs:
           git add .
           git commit -m "Auto commit from Github Actions #${{ github.run_id }}"
           git push origin release/v${{ vars.MINOR }} -f
-
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v3
       - name: Create Release
         uses: kroese/github-release@v6
         env:
@@ -82,14 +72,9 @@ jobs:
           tag: "v${{ vars.MINOR }}"
           title: "v${{ vars.MINOR }}"
           body: "Release v${{ vars.MINOR }}"
-          commit: "release/v${{ vars.MINOR }}"
       -
-        name: Increment minor version
-        run: echo "NEW_MINOR=$((${{ vars.MINOR }}+1))" >> $GITHUB_ENV
-      -
-        name: Update minor version variable
-        uses: kroese/set-variable@v4
+        name: Increment minor version variable
+        uses: kroese/increment@v1
         with:
           name: 'MINOR'
-          value: ${{ env.NEW_MINOR }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
