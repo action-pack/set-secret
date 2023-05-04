@@ -7,7 +7,7 @@ const token = core.getInput("token");
 
 const sodium = require('tweetsodium')
 
-const { Octokit } = require("@octokit/rest")
+const { Octokit } = require("@octokit/action");
 const octokit = new Octokit({ auth: token })
 
 const context = github.context;
@@ -98,7 +98,7 @@ const boostrap = async () => {
       return "Succesfully updated secret.."
     }
     
-    throw new Error("Wrong response: " + response.status)
+    throw new Error("ERROR: Wrong status was returned: " + response.status)
 
   }catch (e) {
     core.setFailed(get_() + ": " + e.message);
