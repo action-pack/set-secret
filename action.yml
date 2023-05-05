@@ -1,12 +1,10 @@
-name: 'Set Secret'
-
-author: kroese
-
-description: 'Action to set repository secrets.'
+name: "Set Secret"
+author: "action-pack"
+description: "Action to set repository secrets."
 
 branding:
-  icon: lock
-  color: gray-dark
+  icon: "lock"
+  color: "gray-dark"
 
 inputs:
   name:
