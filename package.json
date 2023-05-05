@@ -2,7 +2,7 @@
   "name": "set-secret",
   "version": "6",
   "license": "MIT License",
-  "repository": "https://github.com/kroese/set-secret",
+  "repository": "https://github.com/action-pack/set-secret",
   "scripts": {
     "lint": "eslint . --fix",
     "build": "ncc build index.js -m -o dist",
