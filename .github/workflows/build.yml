@@ -12,6 +12,7 @@ on:
       - '.github/workflows/**'
       - 'package.json'
       - 'package-lock.json'
+      - 'action.yml'
 
 jobs:
   test:
@@ -47,7 +48,7 @@ jobs:
       - run: |
           rm -f package-lock.json
           npm i -g @vercel/ncc
-          npm install --production
+          npm install --omit=dev
           npm run build
           #npm run build_stats
           #npm exec --yes -- webpack-bundle-analyzer dist/stats dist -O -m static
@@ -74,6 +75,7 @@ jobs:
           tag: "v${{ vars.MINOR }}"
           title: "v${{ vars.MINOR }}"
           body: "Release v${{ vars.MINOR }}"
+          commit: "release/v${{ vars.MINOR }}"
       -
         name: Increment minor version variable
         uses: action-pack/increment@v2
