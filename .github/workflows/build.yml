@@ -81,7 +81,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
       -
         name: Test secret
-        uses: action-pack/set-secret@v6
+        uses: action-pack/set-secret@v5
         with:
           name: 'MY_SECRET'
           value: 'Lorem ipsun dolor simit'
