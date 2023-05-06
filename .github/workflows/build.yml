@@ -48,9 +48,9 @@ jobs:
           rm -f package-lock.json
           npm i -g @vercel/ncc
           npm install --production
-          #npm run build
-          npm run build_stats
-          npm exec --yes -- webpack-bundle-analyzer dist/stats dist -O -m static
+          npm run build
+          #npm run build_stats
+          #npm exec --yes -- webpack-bundle-analyzer dist/stats dist -O -m static
       - name: Clean files
         run: |
           rm .gitignore
@@ -59,6 +59,7 @@ jobs:
           rm index.js
           rm -f dist/stats
           rm -f dist/index.js.map
+          rm -f dist/index.873.js.map
           rm -f dist/sourcemap-register.js
       - name: Git Create Branch release/v${{ vars.MINOR }} 
         run: |
@@ -78,11 +79,4 @@ jobs:
         uses: action-pack/increment@v1
         with:
           name: 'MINOR'
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-      -
-        name: Test secret
-        uses: action-pack/set-secret@v5
-        with:
-          name: 'MY_SECRET'
-          value: 'Lorem ipsun dolor simit'
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
