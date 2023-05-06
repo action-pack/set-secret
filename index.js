@@ -91,11 +91,11 @@ const boostrap = async () => {
     const response = await setSecret(data)
 
     if(response.status === 201) {
-      return "Succesfully created secret.."
+      return "Succesfully created secret " + name
     }
     
     if(response.status === 204) {
-      return "Succesfully updated secret.."
+      return "Succesfully updated secret " + name
     }
     
     throw new Error("ERROR: Wrong status was returned: " + response.status)
