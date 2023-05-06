@@ -1,14 +1,14 @@
 # Set Secret
 [![Build](https://github.com/action-pack/set-secret/actions/workflows/build.yml/badge.svg)](https://github.com/action-pack/set-secret/)
 [![Version](https://img.shields.io/github/v/tag/action-pack/set-secret?label=version&color=066da5)](https://github.com/action-pack/set-secret/)
-[![Size](https://img.shields.io/github/size/action-pack/set-secret/dist/index.js?branch=release/v5&label=size&color=066da5)](https://github.com/action-pack/set-secret/)
+[![Size](https://img.shields.io/github/size/action-pack/set-secret/dist/index.js?branch=release/v6&label=size&color=066da5)](https://github.com/action-pack/set-secret/)
 
 Action to set repository secrets.
 
 ## Usage
 
 ```YAML
-uses: action-pack/set-secret@v5
+uses: action-pack/set-secret@v6
 with:
   name: 'MY_SECRET'
   value: 'Lorem ipsun dolor simit'
