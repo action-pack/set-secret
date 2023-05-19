@@ -8,7 +8,7 @@ Action to set repository secrets.
 ## Usage
 
 ```YAML
-uses: action-pack/set-secret@v1
+uses: action-pack/set-secret@v1.0
 with:
   name: 'MY_SECRET'
   value: 'Lorem ipsun dolor simit'
