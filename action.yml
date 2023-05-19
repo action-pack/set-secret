@@ -1,6 +1,6 @@
 name: "Set Secret"
 author: "action-pack"
-description: "Action to set repository secrets."
+description: "Action to set a repository secret."
 
 branding:
   icon: "lock"
