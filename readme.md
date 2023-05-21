@@ -1,7 +1,7 @@
 # Set Secret
 [![Build](https://github.com/action-pack/set-secret/actions/workflows/build.yml/badge.svg)](https://github.com/action-pack/set-secret/)
 [![Version](https://img.shields.io/github/v/tag/action-pack/set-secret?label=version&sort=semver&color=066da5)](https://github.com/marketplace/actions/set-secret)
-[![Size](https://img.shields.io/github/size/action-pack/set-secret/dist/index.js?branch=release/v1.1&label=size&color=066da5)](https://github.com/action-pack/set-secret/)
+[![Size](https://img.shields.io/github/size/action-pack/set-secret/dist/index.js?branch=release/v1.0&label=size&color=066da5)](https://github.com/action-pack/set-secret/)
 
 Action to set a repository secret.
 
