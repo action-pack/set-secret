@@ -1,5 +1,5 @@
 const github = require("@actions/github");
-const core = require("@unlike/github-actions-core");
+import * as core from '@unlike/github-actions-core'
 
 const name = core.getInput("name");
 const value = core.getInput("value");
