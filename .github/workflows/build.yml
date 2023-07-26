@@ -68,12 +68,7 @@ jobs:
           rm -f dist/index.js.map
           rm -f dist/index.873.js.map
           rm -f dist/sourcemap-register.js
-      -
-        name: Create Branch release/v${{ vars.MAJOR }}.${{ vars.MINOR }}
-        run: |
-          git add .
-          git commit -m "Auto commit from Github Actions #${{ github.run_id }}"
-          git push origin release/v${{ vars.MAJOR }}.${{ vars.MINOR }} -f
+
       -
         name: Get previous tag
         id: previousTag
@@ -93,6 +88,12 @@ jobs:
           reverseOrder: true
           includeInvalidCommits: true
           excludeTypes: "docs,build,chore"
+      -
+        name: Create Branch release/v${{ vars.MAJOR }}.${{ vars.MINOR }}
+        run: |
+          git add .
+          git commit -m "Auto commit from Github Actions #${{ github.run_id }}"
+          git push origin release/v${{ vars.MAJOR }}.${{ vars.MINOR }} -f
       -
         name: Create a release
         uses: action-pack/github-release@v2
