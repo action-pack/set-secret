@@ -39,7 +39,6 @@ jobs:
         with:
            fetch-depth: 0
            token: ${{ secrets.REPO_ACCESS_TOKEN }}
-
       -
         name: Generate changelog
         id: changelog
@@ -53,7 +52,6 @@ jobs:
           includeInvalidCommits: true
           excludeTypes: "docs,build,chore"
       -
-
         name: Setup Git
         run: |
           git config user.name kroese
@@ -84,7 +82,6 @@ jobs:
           rm -f dist/index.js.map
           rm -f dist/index.873.js.map
           rm -f dist/sourcemap-register.js
-
       -
         name: Create Branch release/v${{ vars.MAJOR }}.${{ vars.MINOR }}
         run: |
