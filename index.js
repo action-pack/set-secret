@@ -66,7 +66,7 @@ const setSecret = (data) => {
 const bootstrap = async () => {
 
   try {
-  
+
     const { key_id, key } = await getPublicKey();
 
     let data = await createSecret(key_id, key, value);
@@ -84,7 +84,7 @@ const bootstrap = async () => {
     }
 
     throw new Error("ERROR: Wrong status was returned: " + response.status);
-    
+
   } catch (e) {
     core.setFailed(get_() + ": " + e.message);
     console.error(e);
