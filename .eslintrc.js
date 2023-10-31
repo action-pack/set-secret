@@ -38,10 +38,10 @@ module.exports = {
       'double'
     ],
     semi: [
-      'error',
-      'never'
+      'warn',
+      'always'
     ],
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': ['warn, 'always'],
     'space-before-function-paren': ['error', {
       anonymous: 'never',
       named: 'never',
