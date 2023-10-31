@@ -20,7 +20,7 @@ if (owner === "false") owner = ownerName;
 
 const push_to_org = core.getInput("org") !== "false";
 
-function get_() {
+function path_() {
 
   if (push_to_org) return "/orgs/" + owner;
   if (repository.includes("/")) return "/repos/" + repository;
@@ -31,8 +31,7 @@ function get_() {
 
 const getPublicKey = async () => {
 
-  let url = "GET ";
-  url += get_();
+  let url = "GET " + path_();
   url += "/actions/secrets/public-key";
 
   let { data } = await octokit.request(url);
@@ -54,8 +53,7 @@ const createSecret = async (key_id, key, secret) => {
 
 const setSecret = (data) => {
 
-  let url = "PUT ";
-  url += get_();
+  let url = "PUT " + path_();
   url += "/actions/secrets/" + name;
 
   return octokit.request(url, {
@@ -86,7 +84,7 @@ const bootstrap = async () => {
     throw new Error("ERROR: Wrong status was returned: " + response.status);
 
   } catch (e) {
-    core.setFailed(get_() + ": " + e.message);
+    core.setFailed(path_() + ": " + e.message);
     console.error(e);
   }
 };
