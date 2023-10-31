@@ -41,7 +41,7 @@ module.exports = {
       'warn',
       'always'
     ],
-    'comma-dangle': ['warn, 'always'],
+    'comma-dangle': ['warn', 'always'],
     'space-before-function-paren': ['error', {
       anonymous: 'never',
       named: 'never',
