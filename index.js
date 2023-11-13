@@ -12,13 +12,13 @@ const context = github.context;
 const repoName = context.payload.repository.name;
 const ownerName = context.payload.repository.owner.login;
 
-let repository = core.getInput("repository");
-if (repository === "false") repository = repoName;
-
 let owner = core.getInput("owner");
-if (owner === "false") owner = ownerName;
+if (owner === "" || owner === "false") owner = ownerName;
 
-const push_to_org = core.getInput("org") !== "false";
+let repository = core.getInput("repository");
+if (repository === "" || repository === "false") repository = repoName;
+
+const push_to_org = core.getInput("org") !== "" && core.getInput("org") !== "false";
 
 function path_() {
 
