@@ -69,7 +69,7 @@ const bootstrap = async () => {
     if (name === "") {
       throw new Error("No name was specified!");
     }
-    
+
     const { key_id, key } = await getPublicKey();
 
     let data = await createSecret(key_id, key, value);
