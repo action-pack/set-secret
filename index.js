@@ -5,20 +5,12 @@ const sodium = require("tweetsodium");
 const token = core.getInput("token");
 const octokit = github.getOctokit(token);
 
-const name = core.getInput("name");
+const name = input("name", "");
 const value = core.getInput("value");
 
-const context = github.context;
-const repoName = context.payload.repository.name;
-const ownerName = context.payload.repository.owner.login;
-
-let owner = core.getInput("owner");
-if (owner === "" || owner === "false") owner = ownerName;
-
-let repository = core.getInput("repository");
-if (repository === "" || repository === "false") repository = repoName;
-
-const push_to_org = core.getInput("org") !== "" && core.getInput("org") !== "false";
+const push_to_org = (input("org", "") !== "");
+const owner = input("owner", github.context.payload.repository.owner.login);
+const repository = input("repository", github.context.payload.repository.name);
 
 function path_() {
 
@@ -26,6 +18,15 @@ function path_() {
   if (repository.includes("/")) return "/repos/" + repository;
 
   return "/repos/" + owner + "/" + repository;
+
+}
+
+function input(name, def) {
+
+  let inp = core.getInput(name).trim();
+  if (inp === "" || inp.toLowerCase() === "false") return def;
+
+  return inp;
 
 }
 
@@ -65,6 +66,10 @@ const bootstrap = async () => {
 
   try {
 
+    if (name === "") {
+      throw new Error("No name was specified!");
+    }
+    
     const { key_id, key } = await getPublicKey();
 
     let data = await createSecret(key_id, key, value);
@@ -74,11 +79,11 @@ const bootstrap = async () => {
     const response = await setSecret(data);
 
     if (response.status === 201) {
-      return "Succesfully created secret " + name;
+      return "Succesfully created secret " + name + ".";
     }
 
     if (response.status === 204) {
-      return "Succesfully updated secret " + name;
+      return "Succesfully updated secret " + name + " to new value.";
     }
 
     throw new Error("ERROR: Wrong status was returned: " + response.status);
