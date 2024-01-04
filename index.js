@@ -9,6 +9,7 @@ const name = input("name", "");
 const value = core.getInput("value");
 
 const push_to_org = (input("org", "") !== "");
+const visibility = input("visibility", "all");
 const owner = input("owner", github.context.payload.repository.owner.login);
 const repository = input("repository", github.context.payload.repository.name);
 
@@ -74,7 +75,7 @@ const bootstrap = async () => {
 
     let data = await createSecret(key_id, key, value);
 
-    if (push_to_org) data["visibility"] = "all";
+    if (push_to_org) data["visibility"] = visibility;
 
     const response = await setSecret(data);
 
