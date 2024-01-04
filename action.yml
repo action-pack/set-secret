@@ -30,6 +30,10 @@ inputs:
     default: false
     required: false
 
+  visibility:
+    description: Visibility of the secret in an org
+    required: false
+
   token:
     description: Repository access token
     required: true

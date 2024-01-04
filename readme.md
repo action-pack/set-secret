@@ -44,3 +44,7 @@ with:
 ### org
 
 **Optional** `Boolean` Indicates the repo is an [organization](https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-organizations).
+
+### visibility
+
+**Optional** `String` The visibility of the secret in organizations. Can be `all`, `private`, or `selected`, Defaults to `all`.
