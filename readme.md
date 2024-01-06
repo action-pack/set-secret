@@ -48,3 +48,19 @@ with:
 ### visibility
 
 **Optional** `String` The visibility of the secret in organizations. Can be `all`, `private`, or `selected`, Defaults to `all`.
+
+## FAQ
+
+  * ### Why do I get the error '*Resource not accessible by integration*'?
+
+    This will happen if you use ```secrets.GITHUB_TOKEN```.
+
+    You need to create a [personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) instead.
+
+    Go to your Github settings, select 'Developer settings' --> 'Personal access tokens' --> 'Tokens (classic)' and create a new token. Store its value in a secret, for example ```MY_TOKEN```.
+
+    Then refer to it like this:
+    
+    ```yaml
+    token: ${{ secrets.MY_TOKEN }}
+    ```
