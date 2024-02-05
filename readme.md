@@ -64,3 +64,6 @@ with:
     ```yaml
     token: ${{ secrets.MY_TOKEN }}
     ```
+
+## Stars
+[![Stars](https://starchart.cc/action-pack/set-secret.svg?variant=adaptive)](https://starchart.cc/action-pack/set-secret)
