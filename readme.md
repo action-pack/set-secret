@@ -9,9 +9,9 @@
 
 Action to set a repository secret.
 
-## Usage
+## Usage 🚀
 
-```YAML
+```yaml
 uses: action-pack/set-secret@v1
 with:
   name: 'MY_SECRET'
@@ -19,7 +19,7 @@ with:
   token: ${{ secrets.REPO_ACCESS_TOKEN }}
 ```
 
-## Inputs
+## Inputs 📝
 
 ### name
 
@@ -49,7 +49,7 @@ with:
 
 **Optional** `String` The visibility of the secret in organizations. Can be `all`, `private`, or `selected`, Defaults to `all`.
 
-## FAQ
+## FAQ 💬
 
   * ### Why do I get the error '*Resource not accessible by integration*'?
 
@@ -65,5 +65,5 @@ with:
     token: ${{ secrets.MY_TOKEN }}
     ```
 
-## Stars
+## Stars 🌟
 [![Stars](https://starchart.cc/action-pack/set-secret.svg?variant=adaptive)](https://starchart.cc/action-pack/set-secret)
