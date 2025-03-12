@@ -1,6 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-const sodium = require("tweetsodium");
+const sodium = require("libsodium-wrappers");
 
 const token = core.getInput("token");
 const octokit = github.getOctokit(token);
@@ -43,14 +43,26 @@ const getPublicKey = async () => {
 
 const createSecret = async (key_id, key, secret) => {
 
-  const messageBytes = Buffer.from(secret);
-  const keyBytes = Buffer.from(key, "base64");
-  const encryptedBytes = sodium.seal(messageBytes, keyBytes);
+  // Check if libsodium is ready and then proceed.
+  return sodium.ready.then(() => {
 
-  return {
-    encrypted_value: Buffer.from(encryptedBytes).toString("base64"),
-    key_id,
-  };
+    // Convert the secret and key to a Uint8Array.
+    let binkey = sodium.from_base64(key, sodium.base64_variants.ORIGINAL);
+    let binsec = sodium.from_string(secret);
+
+    // Encrypt the secret using libsodium
+    let encBytes = sodium.crypto_box_seal(binsec, binkey);
+
+    // Convert the encrypted Uint8Array to Base64
+    let encryptedValue = sodium.to_base64(encBytes, sodium.base64_variants.ORIGINAL);
+
+    return {
+      encrypted_value: encryptedValue,
+      key_id
+    };
+  }).catch(error => {
+    throw new Error(`Failed to create secret: ${error.message}`);
+  });
 };
 
 const setSecret = (data) => {
@@ -80,11 +92,11 @@ const bootstrap = async () => {
     const response = await setSecret(data);
 
     if (response.status === 201) {
-      return "Succesfully created secret " + name + ".";
+      return "Successfully created secret " + name + ".";
     }
 
     if (response.status === 204) {
-      return "Succesfully updated secret " + name + " to new value.";
+      return "Successfully updated secret " + name + " to new value.";
     }
 
     throw new Error("ERROR: Wrong status was returned: " + response.status);
