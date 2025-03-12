@@ -10,19 +10,15 @@
     "build_stats": "ncc build index.js -s --stats-out dist/stats -o dist"
   },
   "dependencies": {
-    "@actions/core": "^1.10.1",
-    "@actions/github": "^5.1.1",
-    "tweetsodium": "^0.0.5"
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "libsodium-wrappers": "^0.7.15"
   },
   "devDependencies": {
     "husky": "^9.0.0",
     "lint-staged": "^15.0.0",
     "eslint-plugin-jsdoc": "^50.0.0",
     "eslint-config-strongloop": "^2.1.0"
-  },
-  "overrides": {
-    "@octokit/core": "^5.0.1",
-    "@actions/http-client": "2.1.1"
   },
   "husky": {
     "hooks": {
