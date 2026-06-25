@@ -66,4 +66,4 @@ with:
     ```
 
 ## Stars 🌟
-![Stargazers](https://raw.githubusercontent.com/star-stats/stars/refs/heads/data/charts/action-pack-set-secret.svg)
+[![Stargazers](https://raw.githubusercontent.com/star-stats/stars/refs/heads/data/charts/action-pack-set-secret.svg)](https://github.com/action-pack/set-secret/stargazers)
