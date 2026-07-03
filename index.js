@@ -19,7 +19,6 @@ function path_() {
   if (repository.includes("/")) return "/repos/" + repository;
 
   return "/repos/" + owner + "/" + repository;
-
 }
 
 function input(name, def) {
@@ -28,7 +27,6 @@ function input(name, def) {
   if (inp === "" || inp.toLowerCase() === "false") return def;
 
   return inp;
-
 }
 
 const getPublicKey = async () => {
@@ -68,7 +66,7 @@ const createSecret = async (key_id, key, secret) => {
 const setSecret = (data) => {
 
   let url = "PUT " + path_();
-  url += "/actions/secrets/" + name;
+  url += "/actions/secrets/" + encodeURIComponent(name);
 
   return octokit.request(url, {
     data,
@@ -81,6 +79,10 @@ const bootstrap = async () => {
 
     if (name === "") {
       throw new Error("No name was specified!");
+    }
+
+    if (value === "") {
+      throw new Error("No value was specified!");
     }
 
     const { key_id, key } = await getPublicKey();
@@ -120,7 +122,4 @@ bootstrap()
       core.setFailed(err.message);
       console.error(err);
     },
-  )
-  .then(() => {
-    process.exit();
-  });
+  );
